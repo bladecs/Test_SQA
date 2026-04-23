@@ -1,0 +1,52 @@
+{
+	"id": "1470b916-6201-4e4a-8bed-35a8fbd6a5c3",
+	"name": "Penjualan Env",
+	"values": [
+		{
+			"key": "base_url",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "usr_token",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "id_kategori",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "id_produk",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "id_pelanggan",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "id_transaksi",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "transaksi_id",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		}
+	],
+	"color": null,
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2026-04-23T06:46:17.915Z",
+	"_postman_exported_using": "Postman/12.7.4"
+}
