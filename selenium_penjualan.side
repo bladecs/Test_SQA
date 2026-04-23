@@ -1,0 +1,127 @@
+{
+  "id": "7c9c6c51-3b43-4edb-8fdf-2f1c54f7b101",
+  "version": "2.0",
+  "name": "Sistem Penjualan Selenium IDE",
+  "url": "http://localhost:8080",
+  "tests": [
+    {
+      "id": "tc-01-login-valid",
+      "name": "TC-01 Login Valid",
+      "commands": [
+        {"id": "c01-01", "comment": "", "command": "open", "target": "/login.php", "targets": [], "value": ""},
+        {"id": "c01-02", "comment": "", "command": "type", "target": "id=username", "targets": [], "value": "admin"},
+        {"id": "c01-03", "comment": "", "command": "type", "target": "id=password", "targets": [], "value": "admin123"},
+        {"id": "c01-04", "comment": "", "command": "click", "target": "css=button[type='submit']", "targets": [], "value": ""},
+        {"id": "c01-05", "comment": "", "command": "waitForElementPresent", "target": "linkText=Logout", "targets": [], "value": "10000"},
+        {"id": "c01-06", "comment": "", "command": "assertText", "target": "css=h1", "targets": [], "value": "Dashboard Sistem Penjualan"}
+      ]
+    },
+    {
+      "id": "tc-02-akses-transaksi-baru",
+      "name": "TC-02 Akses Halaman Transaksi Baru",
+      "commands": [
+        {"id": "c02-01", "comment": "", "command": "open", "target": "/login.php", "targets": [], "value": ""},
+        {"id": "c02-02", "comment": "", "command": "type", "target": "id=username", "targets": [], "value": "admin"},
+        {"id": "c02-03", "comment": "", "command": "type", "target": "id=password", "targets": [], "value": "admin123"},
+        {"id": "c02-04", "comment": "", "command": "click", "target": "css=button[type='submit']", "targets": [], "value": ""},
+        {"id": "c02-05", "comment": "", "command": "open", "target": "/transaksi_create.php", "targets": [], "value": ""},
+        {"id": "c02-06", "comment": "", "command": "waitForElementPresent", "target": "id=pelanggan_id", "targets": [], "value": "10000"},
+        {"id": "c02-07", "comment": "", "command": "assertElementPresent", "target": "id=produk_id", "targets": [], "value": ""},
+        {"id": "c02-08", "comment": "", "command": "assertElementPresent", "target": "id=qty", "targets": [], "value": ""},
+        {"id": "c02-09", "comment": "", "command": "assertElementPresent", "target": "id=btnTambah", "targets": [], "value": ""},
+        {"id": "c02-10", "comment": "", "command": "assertElementPresent", "target": "id=btnSimpan", "targets": [], "value": ""}
+      ]
+    },
+    {
+      "id": "tc-03-penambahan-item",
+      "name": "TC-03 Penambahan Item ke Keranjang",
+      "commands": [
+        {"id": "c03-01", "comment": "", "command": "open", "target": "/login.php", "targets": [], "value": ""},
+        {"id": "c03-02", "comment": "", "command": "type", "target": "id=username", "targets": [], "value": "admin"},
+        {"id": "c03-03", "comment": "", "command": "type", "target": "id=password", "targets": [], "value": "admin123"},
+        {"id": "c03-04", "comment": "", "command": "click", "target": "css=button[type='submit']", "targets": [], "value": ""},
+        {"id": "c03-05", "comment": "", "command": "open", "target": "/transaksi_create.php", "targets": [], "value": ""},
+        {"id": "c03-06", "comment": "", "command": "waitForElementPresent", "target": "css=#produk_id option:nth-child(2)", "targets": [], "value": "10000"},
+        {"id": "c03-07", "comment": "", "command": "select", "target": "id=produk_id", "targets": [], "value": "index=1"},
+        {"id": "c03-08", "comment": "", "command": "type", "target": "id=qty", "targets": [], "value": "1"},
+        {"id": "c03-09", "comment": "", "command": "click", "target": "id=btnTambah", "targets": [], "value": ""},
+        {"id": "c03-10", "comment": "", "command": "waitForElementPresent", "target": "css=#keranjang tbody tr", "targets": [], "value": "10000"},
+        {"id": "c03-11", "comment": "", "command": "assertText", "target": "css=#keranjang tbody tr td:nth-child(3)", "targets": [], "value": "1"}
+      ]
+    },
+    {
+      "id": "tc-04-transaksi-sukses",
+      "name": "TC-04 Proses Transaksi Sukses (Happy Path)",
+      "commands": [
+        {"id": "c04-01", "comment": "", "command": "open", "target": "/login.php", "targets": [], "value": ""},
+        {"id": "c04-02", "comment": "", "command": "type", "target": "id=username", "targets": [], "value": "admin"},
+        {"id": "c04-03", "comment": "", "command": "type", "target": "id=password", "targets": [], "value": "admin123"},
+        {"id": "c04-04", "comment": "", "command": "click", "target": "css=button[type='submit']", "targets": [], "value": ""},
+        {"id": "c04-05", "comment": "", "command": "open", "target": "/transaksi_create.php", "targets": [], "value": ""},
+        {"id": "c04-06", "comment": "", "command": "waitForElementPresent", "target": "css=#pelanggan_id option:nth-child(2)", "targets": [], "value": "10000"},
+        {"id": "c04-07", "comment": "", "command": "select", "target": "id=pelanggan_id", "targets": [], "value": "index=1"},
+        {"id": "c04-08", "comment": "", "command": "select", "target": "id=produk_id", "targets": [], "value": "index=1"},
+        {"id": "c04-09", "comment": "", "command": "type", "target": "id=qty", "targets": [], "value": "1"},
+        {"id": "c04-10", "comment": "", "command": "click", "target": "id=btnTambah", "targets": [], "value": ""},
+        {"id": "c04-11", "comment": "", "command": "select", "target": "id=produk_id", "targets": [], "value": "index=2"},
+        {"id": "c04-12", "comment": "", "command": "type", "target": "id=qty", "targets": [], "value": "1"},
+        {"id": "c04-13", "comment": "", "command": "click", "target": "id=btnTambah", "targets": [], "value": ""},
+        {"id": "c04-14", "comment": "", "command": "click", "target": "id=btnSimpan", "targets": [], "value": ""},
+        {"id": "c04-15", "comment": "", "command": "waitForText", "target": "css=#message .alert-success", "targets": [], "value": "Transaksi berhasil disimpan"},
+        {"id": "c04-16", "comment": "", "command": "assertText", "target": "css=#message .alert-success", "targets": [], "value": "Transaksi berhasil disimpan"},
+        {"id": "c04-17", "comment": "", "command": "waitForElementPresent", "target": "id=tabelTransaksi", "targets": [], "value": "10000"},
+        {"id": "c04-18", "comment": "", "command": "assertElementPresent", "target": "css=#tabelTransaksi tbody tr", "targets": [], "value": ""}
+      ]
+    },
+    {
+      "id": "tc-05-stok-tidak-cukup",
+      "name": "TC-05 Validasi Stok Tidak Cukup (Negatif)",
+      "commands": [
+        {"id": "c05-01", "comment": "", "command": "open", "target": "/login.php", "targets": [], "value": ""},
+        {"id": "c05-02", "comment": "", "command": "type", "target": "id=username", "targets": [], "value": "admin"},
+        {"id": "c05-03", "comment": "", "command": "type", "target": "id=password", "targets": [], "value": "admin123"},
+        {"id": "c05-04", "comment": "", "command": "click", "target": "css=button[type='submit']", "targets": [], "value": ""},
+        {"id": "c05-05", "comment": "", "command": "open", "target": "/transaksi_create.php", "targets": [], "value": ""},
+        {"id": "c05-06", "comment": "", "command": "waitForElementPresent", "target": "css=#produk_id option:nth-child(2)", "targets": [], "value": "10000"},
+        {"id": "c05-07", "comment": "", "command": "select", "target": "id=produk_id", "targets": [], "value": "index=1"},
+        {"id": "c05-08", "comment": "", "command": "type", "target": "id=qty", "targets": [], "value": "999999"},
+        {"id": "c05-09", "comment": "", "command": "click", "target": "id=btnTambah", "targets": [], "value": ""},
+        {"id": "c05-10", "comment": "", "command": "waitForAlert", "target": "regexp:Stok tidak mencukupi!.*", "targets": [], "value": "10000"},
+        {"id": "c05-11", "comment": "", "command": "assertAlert", "target": "regexp:Stok tidak mencukupi!.*", "targets": [], "value": ""}
+      ]
+    },
+    {
+      "id": "tc-06-logout",
+      "name": "TC-06 Logout",
+      "commands": [
+        {"id": "c06-01", "comment": "", "command": "open", "target": "/login.php", "targets": [], "value": ""},
+        {"id": "c06-02", "comment": "", "command": "type", "target": "id=username", "targets": [], "value": "admin"},
+        {"id": "c06-03", "comment": "", "command": "type", "target": "id=password", "targets": [], "value": "admin123"},
+        {"id": "c06-04", "comment": "", "command": "click", "target": "css=button[type='submit']", "targets": [], "value": ""},
+        {"id": "c06-05", "comment": "", "command": "waitForElementPresent", "target": "linkText=Logout", "targets": [], "value": "10000"},
+        {"id": "c06-06", "comment": "", "command": "click", "target": "linkText=Logout", "targets": [], "value": ""},
+        {"id": "c06-07", "comment": "", "command": "waitForElementPresent", "target": "id=username", "targets": [], "value": "10000"},
+        {"id": "c06-08", "comment": "", "command": "assertText", "target": "css=h2", "targets": [], "value": "Login"}
+      ]
+    }
+  ],
+  "suites": [
+    {
+      "id": "suite-daftar-test-case",
+      "name": "IV. Daftar Test Case",
+      "persistSession": false,
+      "parallel": false,
+      "timeout": 300,
+      "tests": [
+        "tc-01-login-valid",
+        "tc-02-akses-transaksi-baru",
+        "tc-03-penambahan-item",
+        "tc-04-transaksi-sukses",
+        "tc-05-stok-tidak-cukup",
+        "tc-06-logout"
+      ]
+    }
+  ],
+  "urls": ["http://localhost:8080"],
+  "plugins": []
+}

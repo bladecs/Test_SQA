@@ -178,6 +178,10 @@ requireLogin();
             produkSelect.value = '';
         });
 
+        function showMessage(type, text) {
+            document.getElementById('message').innerHTML = `<div class="alert alert-${type}" role="alert">${text}</div>`;
+        }
+
         document.getElementById('btnSimpan').addEventListener('click', async () => {
             const pelanggan_id = document.getElementById('pelanggan_id').value;
             if (!pelanggan_id) {
@@ -196,10 +200,12 @@ requireLogin();
             };
             const res = await fetchAPI('/transaksi', 'POST', transaksi);
             if (res.code === 200) {
-                alert('Transaksi berhasil disimpan');
-                window.location.href = 'transaksi.php';
+                showMessage('success', 'Transaksi berhasil disimpan');
+                setTimeout(() => {
+                    window.location.href = 'transaksi.php';
+                }, 1000);
             } else {
-                alert('Gagal: ' + (res.data.detail || 'Error'));
+                showMessage('danger', 'Gagal: ' + (res.data.detail || 'Error'));
             }
         });
 
